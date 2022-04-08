@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
+
+namespace team5_SC.Models
+{
+    public class DBContext : DbContext
+    {
+        public DBContext(DbContextOptions<DBContext> options)
+            : base(options)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder model)
+        {
+
+        }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<ActivationCode> ActivationCodes { get; set; }
+        public DbSet<MyPurchase> MyPurchases { get; set; }
+
+        public DbSet<Session> Sessions { get; set; }
+    }    
+}
