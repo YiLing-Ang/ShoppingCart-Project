@@ -19,9 +19,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using EFCore.Models;
+using team5_SC.Models;
 
-namespace team5.Models
+namespace team5_SC.Models
 {
 	public class DB
 	{
@@ -37,9 +37,6 @@ namespace team5.Models
 		{
 			SeedProducts();
 			SeedUsers();
-			SeedMyPurchases();
-			SeedSessions();
-			SeedCarts();
 		}
 		public void SeedProducts()
 		{
@@ -60,21 +57,21 @@ namespace team5.Models
 			dbContext.Add(new Product
 			{
 				Image = "../../image/ML.jpg",
-				Name = ".NET ML
+				Name = ".NET ML",
 				Price = 299,
 				Description = "Supercharged .NET machine learning libraries."
 			});
 			dbContext.Add(new Product
 			{
 				Image = "../../image/Analytics.jpeg",
-				Name = ".NET Analytics
+				Name = ".NET Analytics",
 				Price = 299,
 				Description = "Performs data mining and analytics easily in .NET."
 			});
 			dbContext.Add(new Product
 			{
 				Image = "../../image/Loggers.jpg",
-				Name = ".NET Logger
+				Name = ".NET Logger",
 				Price = 49,
 				Description = "Logs and aggregates events easily in your .NET apps."
 			});
@@ -91,23 +88,19 @@ namespace team5.Models
 		{
 			dbContext.Add(new User
 			{
-				Name = "John",
+				Username = "John",
 				Password = "john123"
 			});
 			dbContext.Add(new User
 			{
-				Name = "Mary",
+				Username = "Mary",
 				Password = "mary123"
 			});
 			dbContext.Add(new User
 			{
-				Name = "Hazel",
+				Username = "Hazel",
 				Password = "hazel123"
 			});
-		}
-		private void UpdateActivationCode(int qty)
-		{
-			List<Product> products = dbContext.Products.Where(x 
 		}
 	}
 }
