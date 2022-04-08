@@ -14,7 +14,7 @@ namespace team5_SC.Models
             MyPurchases = new List<MyPurchase>();
         }
 
-        public Guid Id;
+        public Guid Id { get; set; }
 
         public string Image { get; set; }
 
