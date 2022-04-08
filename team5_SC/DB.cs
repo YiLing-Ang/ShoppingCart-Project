@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using team5_SC.Models;
@@ -23,6 +24,7 @@ namespace team5_SC
 
 		public void SeedProducts()
 		{
+			Debug.WriteLine("Testing Testing Testing Testing Testing Testing Testing Testing");
 			dbContext.Add(new Product
 			{
 				Image = "../../image/Chart.jpg",
@@ -65,6 +67,7 @@ namespace team5_SC
 				Price = 199,
 				Description = "Powerful numerical methods for your .NET simulations."
 			});
+			dbContext.SaveChanges();
 		}
 
 		public void SeedUsers()
@@ -84,6 +87,7 @@ namespace team5_SC
 				Username = "Hazel",
 				Password = "hazel123"
 			});
+			dbContext.SaveChanges();
 		}
 	}
 }
