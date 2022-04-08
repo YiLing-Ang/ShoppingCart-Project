@@ -27,8 +27,7 @@ namespace team5_SC.Controllers
 
             List<Product> products = dbContext.Products.Where(x =>
                 x.Name.Contains(searchStr) ||
-                x.Description.Contains(searchStr) ||
-                x.Price.Contains(searchStr)
+                x.Description.Contains(searchStr)
             ).ToList();
 
             ViewData["searchStr"] = searchStr;

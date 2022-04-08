@@ -58,7 +58,7 @@ namespace team5_SC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
             });
 
             if (!dbContext.Database.CanConnect())
