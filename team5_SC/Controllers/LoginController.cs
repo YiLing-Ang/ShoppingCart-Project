@@ -15,20 +15,27 @@
 //// The following GUID is for the ID of the typelib if this project is exposed to COM.
 
 //[assembly: Guid("cb15b9c1-31f5-4989-9045-beeaa16409ba")]
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 using team5_SC.Models;
 
 namespace team5_SC.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly DBContext dbContext;
+
+        public LoginController(DBContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
         public IActionResult Login(IFormCollection form)
         {
             string username = form["username"];
