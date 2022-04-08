@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using team5_SC.Models;
 
 namespace team5_SC
 {
@@ -24,10 +27,15 @@ namespace team5_SC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<DBContext>(opt =>
+                opt.UseLazyLoadingProxies().UseSqlServer(
+                    Configuration.GetConnectionString("db_conn"))
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, [FromServices] DBContext dbContext)
         {
             if (env.IsDevelopment())
             {
@@ -52,6 +60,15 @@ namespace team5_SC
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            if (!dbContext.Database.CanConnect())
+            {
+                dbContext.Database.EnsureCreated();
+
+                // seed the database with some users
+                DB db = new DB(dbContext);
+                db.Seed();
+            }
         }
     }
 }
