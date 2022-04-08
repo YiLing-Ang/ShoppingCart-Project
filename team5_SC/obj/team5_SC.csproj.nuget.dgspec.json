@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chuzi\\source\\repos\\team5-ca-sc\\team5_SC\\team5_SC.csproj": {}
+    "C:\\Users\\MonKo\\Documents\\GitHub\\team5-ca-sc\\team5_SC\\team5_SC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chuzi\\source\\repos\\team5-ca-sc\\team5_SC\\team5_SC.csproj": {
+    "C:\\Users\\MonKo\\Documents\\GitHub\\team5-ca-sc\\team5_SC\\team5_SC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chuzi\\source\\repos\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
+        "projectUniqueName": "C:\\Users\\MonKo\\Documents\\GitHub\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
         "projectName": "team5_SC",
-        "projectPath": "C:\\Users\\chuzi\\source\\repos\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
-        "packagesPath": "C:\\Users\\chuzi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chuzi\\source\\repos\\team5-ca-sc\\team5_SC\\obj\\",
+        "projectPath": "C:\\Users\\MonKo\\Documents\\GitHub\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
+        "packagesPath": "C:\\Users\\MonKo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MonKo\\Documents\\GitHub\\team5-ca-sc\\team5_SC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\chuzi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MonKo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -43,6 +45,20 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
