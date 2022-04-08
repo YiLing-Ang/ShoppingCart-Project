@@ -1,46 +1,26 @@
-//using System.Runtime.InteropServices;
-
-//// In SDK-style projects such as this one, several assembly attributes that were historically
-//// defined in this file are now automatically added during build and populated with
-//// values defined in project properties. For details of which attributes are included
-//// and how to customise this process see: https://aka.ms/assembly-info-properties
-
-
-//// Setting ComVisible to false makes the types in this assembly not visible to COM
-//// components.  If you need to access a type in this assembly from COM, set the ComVisible
-//// attribute to true on that type.
-
-//[assembly: ComVisible(false)]
-
-//// The following GUID is for the ID of the typelib if this project is exposed to COM.
-
-//[assembly: Guid("7daf6fa5-78b9-4983-a105-f279c03805b5")]
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using EFCore.Models;
+using System.Threading.Tasks;
+using team5_SC.Models;
 
-namespace team5.Models
+namespace team5_SC
 {
-	public class DB
-	{
-		private DBContext dbContext;
+    public class DB
+    {
+        private DBContext dbContext;
 
+        public DB(DBContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
 
-		public DB(DBContext dbContext)
-		{
-			this.dbContext = dbContext;
-		}
+        public void Seed()
+        {
+            SeedUsers();
+            SeedProducts();
+        }
 
-		public void Seed()
-		{
-			SeedProducts();
-			SeedUsers();
-			SeedMyPurchases();
-			SeedSessions();
-			SeedCarts();
-		}
 		public void SeedProducts()
 		{
 			dbContext.Add(new Product
@@ -60,21 +40,21 @@ namespace team5.Models
 			dbContext.Add(new Product
 			{
 				Image = "../../image/ML.jpg",
-				Name = ".NET ML
+				Name = ".NET ML",
 				Price = 299,
 				Description = "Supercharged .NET machine learning libraries."
 			});
 			dbContext.Add(new Product
 			{
 				Image = "../../image/Analytics.jpeg",
-				Name = ".NET Analytics
+				Name = ".NET Analytics",
 				Price = 299,
 				Description = "Performs data mining and analytics easily in .NET."
 			});
 			dbContext.Add(new Product
 			{
 				Image = "../../image/Loggers.jpg",
-				Name = ".NET Logger
+				Name = ".NET Logger",
 				Price = 49,
 				Description = "Logs and aggregates events easily in your .NET apps."
 			});
@@ -91,23 +71,19 @@ namespace team5.Models
 		{
 			dbContext.Add(new User
 			{
-				Name = "John",
+				Username = "John",
 				Password = "john123"
 			});
 			dbContext.Add(new User
 			{
-				Name = "Mary",
+				Username = "Mary",
 				Password = "mary123"
 			});
 			dbContext.Add(new User
 			{
-				Name = "Hazel",
+				Username = "Hazel",
 				Password = "hazel123"
 			});
-		}
-		private void UpdateActivationCode(int qty)
-		{
-			List<Product> products = dbContext.Products.Where(x 
 		}
 	}
 }
