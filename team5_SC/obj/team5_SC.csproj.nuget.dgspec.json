@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ang\\source\\repos\\team5-ca-sc\\team5_SC\\team5_SC.csproj": {}
+    "C:\\Users\\MonKo\\Documents\\GitHub\\team5-ca-sc\\team5_SC\\team5_SC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ang\\source\\repos\\team5-ca-sc\\team5_SC\\team5_SC.csproj": {
+    "C:\\Users\\MonKo\\Documents\\GitHub\\team5-ca-sc\\team5_SC\\team5_SC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ang\\source\\repos\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
+        "projectUniqueName": "C:\\Users\\MonKo\\Documents\\GitHub\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
         "projectName": "team5_SC",
-        "projectPath": "C:\\Users\\Ang\\source\\repos\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
-        "packagesPath": "C:\\Users\\Ang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ang\\source\\repos\\team5-ca-sc\\team5_SC\\obj\\",
+        "projectPath": "C:\\Users\\MonKo\\Documents\\GitHub\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
+        "packagesPath": "C:\\Users\\MonKo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MonKo\\Documents\\GitHub\\team5-ca-sc\\team5_SC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MonKo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
