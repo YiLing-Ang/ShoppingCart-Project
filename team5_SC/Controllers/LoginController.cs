@@ -69,7 +69,7 @@ namespace team5_SC.Controllers
             Response.Cookies.Append("SessionId", session.Id.ToString());
             Response.Cookies.Append("Username", user.Username);
 
-            return RedirectToAction("Search","Home");
+            return RedirectToAction("Index","Home");
         }
 
         public IActionResult Index()
@@ -89,7 +89,7 @@ namespace team5_SC.Controllers
                 }
 
                 // valid Session ID; route to Home page
-                return RedirectToAction("Search", "Home");
+                return RedirectToAction("Index", "Home");
             }
 
             // no Session ID; show Login page
