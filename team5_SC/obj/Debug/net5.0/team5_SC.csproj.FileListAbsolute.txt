@@ -70,3 +70,14 @@ C:\Users\MonKo\Documents\GitHub\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.d
 C:\Users\MonKo\Documents\GitHub\team5-ca-sc\team5_SC\obj\Debug\net5.0\ref\team5_SC.dll
 C:\Users\MonKo\Documents\GitHub\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.pdb
 C:\Users\MonKo\Documents\GitHub\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.genruntimeconfig.cache
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.csproj.AssemblyReference.cache
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.AssemblyInfoInputs.cache
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.AssemblyInfo.cs
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.csproj.CoreCompileInputs.cache
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.RazorAssemblyInfo.cache
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.RazorAssemblyInfo.cs
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.dll
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\ref\team5_SC.dll
+C:\Users\chuzi\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.pdb
