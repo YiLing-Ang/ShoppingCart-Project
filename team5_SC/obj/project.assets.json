@@ -8892,23 +8892,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ang\\.nuget\\packages\\": {},
+    "C:\\Users\\Leon (School)\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ang\\source\\repos\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
+      "projectUniqueName": "C:\\Users\\Leon (School)\\source\\repos\\lyeow-SA54\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
       "projectName": "team5_SC",
-      "projectPath": "C:\\Users\\Ang\\source\\repos\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
-      "packagesPath": "C:\\Users\\Ang\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ang\\source\\repos\\team5-ca-sc\\team5_SC\\obj\\",
+      "projectPath": "C:\\Users\\Leon (School)\\source\\repos\\lyeow-SA54\\team5-ca-sc\\team5_SC\\team5_SC.csproj",
+      "packagesPath": "C:\\Users\\Leon (School)\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Leon (School)\\source\\repos\\lyeow-SA54\\team5-ca-sc\\team5_SC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Leon (School)\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8970,7 +8970,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
   }
