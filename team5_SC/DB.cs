@@ -48,7 +48,7 @@ namespace team5_SC
 			});
 			dbContext.Add(new Product
 			{
-				Image = "../../image/Analytics.jpeg",
+				Image = "../../image/Analytics.png",
 				Name = ".NET Analytics",
 				Price = 299,
 				Description = "Performs data mining and analytics easily in .NET."
