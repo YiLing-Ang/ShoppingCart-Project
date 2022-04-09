@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = "Viewcart";
+
+    List<Cart> carts = ViewBag.carts;
+    List<Product> products = ViewBag.products;
+
+
+}
+@{ ViewData["Title"] = "My Cart";
+}
+
+
+@if (carts.Count == 0)
+{
+    @:Your shoppping cart is empty.
+}
+
+@foreach (team5_SC.Models.Cart cart in carts)
+{
+    <div class="a_container">
+        <div class="a_cartdetail ">
+            <div> <img style="height:100px" src=@cart.Products.Image /></div>
+            <div class="a_product_name">@cart.Products.Name</div>
+
+            <div class="a_product_desc">@cart.Products.Description</div>
+
+
+        </div>
+
+        <div class="col-sm-4" style="padding:15px">
+            <div class="card text-center">
+                <div class="a_price">Price: </div>   <div class="a_price_num">$ @cart.Products.Price </div>
+            </div>
+            <div class="a_cartDetailqty">
+                <div class="a_quantity">Quantity: </div>
+                <div id=@cart.Products.ProductId class="a_quantity_num">
+                    <div class="count_d">-</div>
+
+                    <input id="cart_quanaity" class="num_count" value="@cart.Quantity" />
+                    <div class="count_i">+</div>
+                    <input id="Delete" type="button" value="Submit" disabled="" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
