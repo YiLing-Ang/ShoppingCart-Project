@@ -36,6 +36,7 @@ namespace team5_SC.Controllers
         {
             this.dbContext = dbContext;
         }
+        [HttpPost]
         public IActionResult Login(IFormCollection form)
         {
             string username = form["username"];
@@ -68,7 +69,7 @@ namespace team5_SC.Controllers
             Response.Cookies.Append("SessionId", session.Id.ToString());
             Response.Cookies.Append("Username", user.Username);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index","Home");
         }
 
         public IActionResult Index()

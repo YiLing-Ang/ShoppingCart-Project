@@ -16,20 +16,26 @@ namespace team5_SC.Controllers
             this.dbContext = dbContext;
         }
 
-        public IActionResult Search(string searchStr)
+        public IActionResult Index(string? searchStr)
         {
             Session session = ValidateSession();
+
+            List<Product> products;
 
             if (searchStr == null)
             {
                 searchStr = "";
-            }
 
-            List<Product> products = dbContext.Products.Where(x =>
-                x.Name.Contains(searchStr) ||
-                x.Description.Contains(searchStr) ||
-                x.Price.Contains(searchStr)
-            ).ToList();
+                products = dbContext.Products.Where(x =>
+                    x.Id != null
+                ).ToList();
+            }
+            else
+            {
+                products = dbContext.Products.Where(x =>
+                    x.Name.Contains(searchStr)
+                ).ToList();
+            }
 
             ViewData["searchStr"] = searchStr;
             ViewData["products"] = products;
