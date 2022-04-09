@@ -22,5 +22,7 @@ namespace team5_SC.Models
     public virtual Guid SessionId { get; set; }
 
     public virtual Product Products { get; set; }
+
+    public virtual Guid ProductId { get; set; }
     }
 }

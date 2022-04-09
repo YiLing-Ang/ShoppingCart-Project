@@ -9,7 +9,7 @@ namespace team5_SC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly DBContext dbContext;
+        private DBContext dbContext;
 
         public HomeController(DBContext dbContext)
         {
