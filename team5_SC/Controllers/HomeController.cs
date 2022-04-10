@@ -26,9 +26,7 @@ namespace team5_SC.Controllers
             {
                 searchStr = "";
 
-                products = dbContext.Products.Where(x =>
-                    x.Id != null
-                ).ToList();
+                products = dbContext.Products.ToList();
             }
             else
             {
