@@ -7,37 +7,6 @@
     string searchStr = (string)ViewData["searchStr"];
 }
 
-<style>
-    .mybtn:hover {
-        color: #0069D9;
-        background: #fff;
-    }
-
-    .mybtn {
-        color: #fff;
-    }
-
-    .input-text:focus {
-        box-shadow: 0px 0px 0px;
-        border-color: #0069D9;
-        outline: 0px;
-    }
-
-    .form-control {
-        border: 1px solid #0069D9;
-        height: auto;
-    }
-
-    .card {
-        box-shadow: 0 3px 6px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    }
-
-        .card:hover {
-            box-shadow: 0 18px 30px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-            border: 1px solid #0069D9;
-        }
-</style>
-
 <form action="/Home/Index/" method="POST">
     <div class="row" style="padding: 10px 25px 0px 25px;">
         <div class="col-md-8">

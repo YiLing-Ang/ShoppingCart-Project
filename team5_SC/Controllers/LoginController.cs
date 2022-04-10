@@ -25,6 +25,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using team5_SC.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace team5_SC.Controllers
 {
@@ -42,10 +44,13 @@ namespace team5_SC.Controllers
             string username = form["username"];
             string password = form["password"];
 
+            HashAlgorithm sha = SHA256.Create();
+            byte[] hash = sha.ComputeHash(Encoding.UTF8.GetBytes(username + password));
+
             // authenticate  user and password
             User user = dbContext.Users.FirstOrDefault(x =>
                 x.Username == username &&
-                x.Password == password
+                x.Password == hash
             );
 
             if (user == null)

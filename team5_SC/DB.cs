@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using team5_SC.Models;
 
@@ -48,7 +50,7 @@ namespace team5_SC
 			});
 			dbContext.Add(new Product
 			{
-				Image = "../../image/Analytics.jpeg",
+				Image = "../../image/Analytics.png",
 				Name = ".NET Analytics",
 				Price = 299,
 				Description = "Performs data mining and analytics easily in .NET."
@@ -72,21 +74,23 @@ namespace team5_SC
 
 		public void SeedUsers()
 		{
-			dbContext.Add(new User
-			{
-				Username = "John",
-				Password = "john123"
-			});
-			dbContext.Add(new User
-			{
-				Username = "Mary",
-				Password = "mary123"
-			});
-			dbContext.Add(new User
-			{
-				Username = "Hazel",
-				Password = "hazel123"
-			});
+			HashAlgorithm sha = SHA256.Create();
+
+			string[] usernames = { "John", "Mary", "Hazel" };
+			string[] passwords = { "john123", "mary123", "hazel123" };
+
+			for(int i=0;i<usernames.Length;i++)
+            {
+				string combo = usernames[i] + passwords[i];
+				byte[] hash = sha.ComputeHash(Encoding.UTF8.GetBytes(combo));
+
+				dbContext.Add(new User
+				{
+					Username = usernames[i],
+					Password = hash
+				});
+			}
+
 			dbContext.SaveChanges();
 		}
 	}
