@@ -17,13 +17,13 @@ namespace team5_SC.Controllers
 
         public IActionResult Index()
         {
-            if (Request.Cookies["SessionId"] == null || Request.Cookies["UserId"] == null)
+            if (Request.Cookies["SessionId"] == null || Request.Cookies["Username"] == null)
             {
                 return RedirectToAction("Index", "Login");
             }
 
             User user = dbContext.Users.FirstOrDefault(x =>
-                x.Id == Guid.Parse(Request.Cookies["UserId"]));
+                x.Username == Request.Cookies["Username"]);
 
             List<MyPurchase> purchases = dbContext.MyPurchases.Where(x =>
             x.UserId == user.Id).ToList();
