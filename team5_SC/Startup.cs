@@ -60,10 +60,10 @@ namespace team5_SC
                     name: "default",
                     pattern: "{controller=Login}/{action=Index}/{id?}");
             });
-            
-            //if (!dbContext.Database.CanConnect())
+
+            if (!dbContext.Database.CanConnect())
             {
-                //dbContext.Database.EnsureCreated();
+                dbContext.Database.EnsureCreated();
 
                 // seed the database with some users
                 DB db = new DB(dbContext);
