@@ -15,7 +15,5 @@ namespace team5_SC.Models
         public DateTime PurchaseDate { get; set; }
         public virtual Guid UserId { get; set; }
         public virtual ICollection<Product> Products { get; set; }
-
-        public virtual Guid ActivationCodeId { get; set; }
     }
 }
