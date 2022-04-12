@@ -22,6 +22,7 @@ namespace team5_SC
         {
             SeedUsers();
             SeedProducts();
+			SeedMyPurchases();
         }
 
 		public void SeedProducts()
@@ -90,6 +91,25 @@ namespace team5_SC
 					Password = hash
 				});
 			}
+
+			dbContext.SaveChanges();
+		}
+
+		public void SeedMyPurchases()
+		{
+			User users = dbContext.Users.FirstOrDefault();
+			dbContext.Add(new MyPurchase
+			{
+				Qty = 3,
+				PurchaseDate = DateTime.Now,
+				UserId = users.Id
+			});
+			dbContext.Add(new MyPurchase
+			{
+				Qty = 1,
+				PurchaseDate = DateTime.Now,
+				UserId = users.Id
+			});
 
 			dbContext.SaveChanges();
 		}

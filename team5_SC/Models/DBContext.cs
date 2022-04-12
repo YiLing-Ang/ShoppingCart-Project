@@ -23,7 +23,6 @@ namespace team5_SC.Models
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Cart> Carts { get; set; }
-        public DbSet<ActivationCode> ActivationCodes { get; set; }
         public DbSet<MyPurchase> MyPurchases { get; set; }
 
         public DbSet<Session> Sessions { get; set; }
