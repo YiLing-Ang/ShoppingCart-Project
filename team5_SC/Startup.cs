@@ -53,8 +53,6 @@ namespace team5_SC
             app.UseRouting();
 
             app.UseAuthorization();
-			
-			//app.UseMiddleware<LoginChecker>();
 
             app.UseEndpoints(endpoints =>
             {
