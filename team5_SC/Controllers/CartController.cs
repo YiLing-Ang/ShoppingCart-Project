@@ -115,11 +115,11 @@
 //                    return RedirectToAction("Index", "Logout");
 //                }
 
-                
+
 //                return RedirectToAction("AllProducts", "Product");                                                        // we need AllProducts Action for this line of code...
 //            }
 
-            
+
 //            return View();
 //        }
 
@@ -132,7 +132,7 @@
 
 //            User user = dbContext.User.FirstOrDefault(x => x.Username == Request.Cookies["Username"]);
 
-           
+
 //            Cart cartDetail = dbContext.Cart.FirstOrDefault(x =>
 //                  x.UserId == user.UserId && Guid.Parse(productCounter.ProductId) == x.ProductId);
 
@@ -165,7 +165,7 @@
 //                    return null;
 //                }
 
-            
+
 //                if (cartDetail.Quantity <= 0)
 //                {
 //                    dbContext.Remove(cartDetail);
@@ -329,7 +329,7 @@
 //            }
 
 //            Guid sessionId = Guid.Parse(Request.Cookies["SessionId"]);
-//            Session session = dbContext.Session.FirstOrDefault(x =>
+//            Session session = dbContext.Sessions.FirstOrDefault(x =>
 //                x.Id == sessionId
 //            );
 
