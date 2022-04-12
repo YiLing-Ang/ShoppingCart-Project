@@ -5,6 +5,7 @@
     ViewData["Title"] = "Show Products";
     List<Product> products = (List<Product>)ViewData["products"];
     string searchStr = (string)ViewData["searchStr"];
+    int userCartQty = (int)ViewData["userCartQty"];
 }
 
 <form action="/Home/Index/" method="POST">
@@ -27,9 +28,11 @@
                 <div class="card-body">
                     <h5 class="card-title">@product.Name</h5>
                     <p class="card-text">@product.Description</p>
-                    <a id=@product.Id class="btn btn-primary btn_add_cart">$@product.Price - Add To Cart</a>
+                    <a href="#" class="btn btn-primary my_product" id="@product.Id">$@product.Price - Add To Cart</a>
                 </div>
             </div>
         </div>
     }
 </div>
+
+

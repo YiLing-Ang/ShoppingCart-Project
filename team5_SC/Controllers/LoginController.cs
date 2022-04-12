@@ -62,17 +62,59 @@ namespace team5_SC.Controllers
                 //return RedirectToAction("Index", "Login");
             }
 
-            // create a new session and tag to user
-            Session session = new Session()
+            if (Request.Cookies["SessionId"] != null)
             {
-                User = user
-            };
-            dbContext.Sessions.Add(session);
-            dbContext.SaveChanges();
+                Guid sessionid = Guid.Parse(Request.Cookies["SessionId"]);
+                Session session = dbContext.Sessions.FirstOrDefault(x =>
+                                    x.Id == sessionid);
+                session.User = user;
+                dbContext.SaveChanges();
 
-            // ask browser to save and send back these cookies next time
-            Response.Cookies.Append("SessionId", session.Id.ToString());
-            Response.Cookies.Append("Username", user.Username);
+                List<Cart> products = dbContext.Carts.Where(x =>
+                    x.User.Id == user.Id
+                ).ToList();
+
+                List<Cart> carts = dbContext.Carts.Where(x =>
+                    x.SessionId == sessionid
+                ).ToList();
+
+                foreach(Cart cart in carts)
+                {
+                    //cart.User = user;
+                    foreach(Cart product in products)
+                    {
+                        if (cart.Product.Id == product.Product.Id)
+                        {
+                            product.Quantity += cart.Quantity;
+                            dbContext.SaveChanges();
+                            dbContext.Remove(cart);
+                            dbContext.SaveChanges();
+                        }                        
+                        else
+                        {
+                            cart.User = user;
+                            dbContext.SaveChanges();
+                        }
+                    }
+                }
+                
+
+                Response.Cookies.Append("Username", user.Username);
+            }
+            else
+            {
+                // create a new session and tag to user
+                Session newsession = new Session()
+                {
+                    User = user
+                };
+                dbContext.Sessions.Add(newsession);
+                dbContext.SaveChanges();
+
+                // ask browser to save and send back these cookies next time
+                Response.Cookies.Append("SessionId", newsession.Id.ToString());
+                Response.Cookies.Append("Username", user.Username);
+            }            
 
             return RedirectToAction("Index","Home");
         }
@@ -86,11 +128,15 @@ namespace team5_SC.Controllers
                     x.Id == sessionId
                 );
 
-                if (session == null)
+                //User user = dbContext.Users.FirstOrDefault(x =>
+                //    x.Id == session.User.Id
+                //);
+
+                if (session.User == null)
                 {
                     // someone has used an invalid Session ID (to fool us?); 
                     // route to Logout controller
-                    return RedirectToAction("Index", "Logout");
+                    return View();
                 }
 
                 // valid Session ID; route to Home page
@@ -99,6 +145,12 @@ namespace team5_SC.Controllers
 
             // no Session ID; show Login page
             return View();
+        }
+
+
+        public void bindData()
+        {
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

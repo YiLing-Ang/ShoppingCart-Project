@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using team5_SC.DataHelper;
 using team5_SC.Models;
 
 namespace team5_SC.Controllers
@@ -20,6 +21,8 @@ namespace team5_SC.Controllers
         {
             Session session = ValidateSession();
 
+            int cartQty =0;
+
             List<Product> products;
 
             if (searchStr == null)
@@ -34,7 +37,25 @@ namespace team5_SC.Controllers
                     x.Name.Contains(searchStr)
                 ).ToList();
             }
+            if(session != null)
+            {
+                //User user = dbContext.Users.FirstOrDefault(x => x.Id == session.User.Id);
 
+                cartQty = CartQty.get(session, null, dbContext);
+
+                ViewData["userCartQty"] = cartQty;
+            }
+            else if(session != null && Request.Cookies["Username"] == null)
+            {
+                cartQty = CartQty.get(session, null, dbContext);
+
+                ViewData["userCartQty"] = cartQty;
+            }
+            else
+            {
+                ViewData["userCartQty"] = 0;
+            }
+            
             ViewData["searchStr"] = searchStr;
             ViewData["products"] = products;
             return View();
@@ -47,8 +68,8 @@ namespace team5_SC.Controllers
             {
                 return null;
             }
-
             // convert into a Guid type (from a string type)
+
             Guid sessionId = Guid.Parse(Request.Cookies["SessionId"]);
             Session session = dbContext.Sessions.FirstOrDefault(x =>
                 x.Id == sessionId
