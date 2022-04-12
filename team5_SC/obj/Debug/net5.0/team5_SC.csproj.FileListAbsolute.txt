@@ -429,7 +429,6 @@ C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\ne
 C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.TagHelpers.output.cache
 C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.RazorCoreGenerate.cache
 C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
 C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -442,3 +441,4 @@ C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\ne
 C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.csproj.CopyComplete
 C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.genruntimeconfig.cache
 C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\MyPurchases\Index.cshtml.g.cs
+C:\Users\Leon (School)\source\repos\lyeow-SA54\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs

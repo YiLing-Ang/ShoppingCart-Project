@@ -97,21 +97,37 @@ namespace team5_SC
 
 		public void SeedMyPurchases()
 		{
-			User users = dbContext.Users.FirstOrDefault();
-			dbContext.Add(new MyPurchase
-			{
-				Qty = 3,
-				PurchaseDate = DateTime.Now,
-				UserId = users.Id
-			});
+			User users = dbContext.Users.FirstOrDefault(x => x.Username == "John");
+			
 			dbContext.Add(new MyPurchase
 			{
 				Qty = 1,
 				PurchaseDate = DateTime.Now,
 				UserId = users.Id
 			});
+			dbContext.Add(new MyPurchase
+			{
+				Qty = 2,
+				PurchaseDate = DateTime.Now,
+				UserId = users.Id
+			});
+			dbContext.Add(new MyPurchase
+			{
+				Qty = 3,
+				PurchaseDate = DateTime.Now,
+				UserId = users.Id
+			});
 
 			dbContext.SaveChanges();
+		}
+
+		public void SeedMyPurchasesProduct()
+        {
+			Product products1 = dbContext.Products.FirstOrDefault(x => x.Name == ".NET Charts");
+			Product products2 = dbContext.Products.FirstOrDefault(x => x.Name == ".NET Paypal");
+			Product products3 = dbContext.Products.FirstOrDefault(x => x.Name == ".NET Analytics");
+
+			
 		}
 	}
 }
