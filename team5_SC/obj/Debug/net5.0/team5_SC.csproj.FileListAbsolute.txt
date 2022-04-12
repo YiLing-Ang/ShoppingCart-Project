@@ -741,3 +741,6 @@ C:\Users\Ank\Desktop\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.pdb
 C:\Users\Ank\Desktop\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.genruntimeconfig.cache
 C:\Users\Ank\Desktop\team5-ca-sc\team5_SC\obj\Debug\net5.0\ref\team5_SC.dll
 C:\Users\Ank\Desktop\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+C:\Users\MonKo\Documents\GitHub\team5-ca-sc\team5_SC\bin\Debug\net5.0\team5_SC.StaticWebAssets.xml
+C:\Users\MonKo\Documents\GitHub\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+C:\Users\MonKo\Documents\GitHub\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\MyPurchases\Index.cshtml.g.cs
