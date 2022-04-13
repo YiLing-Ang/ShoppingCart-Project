@@ -14,7 +14,7 @@ window.onload = function () {
 }
 
 function OnMouseClick(event) {
-        AddToCart(event.target.id);
+	AddToCart(event.target.id);
 }
 
 function AddToCart(id) {

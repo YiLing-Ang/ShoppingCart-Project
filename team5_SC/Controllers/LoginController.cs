@@ -71,7 +71,7 @@ namespace team5_SC.Controllers
                 dbContext.SaveChanges();
 
                 List<Cart> products = dbContext.Carts.Where(x =>
-                    x.User.Id == user.Id
+                    x.User == user
                 ).ToList();
 
                 List<Cart> carts = dbContext.Carts.Where(x =>
@@ -80,6 +80,11 @@ namespace team5_SC.Controllers
 
                 foreach(Cart cart in carts)
                 {
+                    if(products.Count == 0)
+                    {
+                        cart.User = user;
+                        dbContext.SaveChanges();
+                    }
                     //cart.User = user;
                     foreach(Cart product in products)
                     {
@@ -96,8 +101,7 @@ namespace team5_SC.Controllers
                             dbContext.SaveChanges();
                         }
                     }
-                }
-                
+                }               
 
                 Response.Cookies.Append("Username", user.Username);
             }

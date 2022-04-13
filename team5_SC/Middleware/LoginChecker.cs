@@ -27,7 +27,7 @@ namespace team5_SC.Middleware
 
             var userId = user.Id;
 
-            if((sessionId == null) && (userId == null))
+            if((sessionId == null) && (userId.ToString() == null))
             {
                 context.Response.Redirect("/Login");
                 return;
