@@ -19,8 +19,9 @@
                 <div>
                     @if (Context.Request.Cookies["Username"] != null && Context.Request.Cookies["SessionId"] != null)
                     {
-                        <div style="font-weight:bold; display:inline">Hello, <u>@Context.Request.Cookies["Username"]</u></div>}
-                                </div>
+                        <div style="font-weight:bold; display:inline">Hello, <u>@Context.Request.Cookies["Username"]</u></div>
+                    }
+                </div>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     @if (Context.Request.Cookies["Username"] != null && Context.Request.Cookies["SessionId"] != null)
                     {
@@ -44,18 +45,27 @@
                                 <a class="nav-link" asp-area="" asp-controller="Logout" asp-action="Index" style="color: #0000EE"><u>Logout</u></a>
                             </li>
                         </ul>}
-                    @if (Context.Request.Cookies["Username"] == null && Context.Request.Cookies["SessionId"] == null)
+                    @if (Context.Request.Cookies["Username"] == null || Context.Request.Cookies["SessionId"] == null)
                     {
                         <ul class="navbar-nav text-right">
                             <li class="nav-item active">
                                 <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index" style="color: #0000EE"><u>Login</u></a>
                             </li>
-                        </ul>}
+                        </ul>
                         <ul class="navbar-nav text-right">
                             <li class="nav-item active">
-                                <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index"><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Shopping Cart</a>
+                                <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index" ><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">0</span> </a>
                             </li>
                         </ul>
+                    }
+                    else
+                    {
+                        <ul class="navbar-nav text-right">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index" ><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">@ViewData["userCartQty"]</span> </a>
+                            </li>
+                        </ul>
+                    }
                     </div>
                 </div>
             </nav>
@@ -74,6 +84,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/addtocart.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
