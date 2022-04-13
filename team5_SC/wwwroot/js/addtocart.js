@@ -14,9 +14,7 @@ window.onload = function () {
 }
 
 function OnMouseClick(event) {
-    if (confirm("Confirm add to cart this product?") == true) {
-        AddToCart(event.target.id);
-    }
+	AddToCart(event.target.id);
 }
 
 function AddToCart(id) {
