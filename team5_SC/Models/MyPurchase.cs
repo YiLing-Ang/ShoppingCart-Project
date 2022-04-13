@@ -8,13 +8,13 @@ namespace team5_SC.Models
         public MyPurchase()
         {
             Id = new Guid();
-            Products = new List<Product>();
+            //Products = new List<Product>();
         }
         public Guid Id { get; set; }
         public int Qty { get; set; }
         public DateTime PurchaseDate { get; set; }
         public virtual Guid UserId { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual Product Product { get; set; }
 
     }
 }

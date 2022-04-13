@@ -3,116 +3,72 @@
 *@
 @{
     ViewData["Title"] = "My Purchases";
-    List<MyPurchase> purchases = (List<MyPurchase>)ViewData["purchases"];
+    List<MyPurchase> myPurchases = (List<MyPurchase>)ViewData["myPurchases"];
+
 }
 
 @*<div class="row" style="padding: 30px 25px 30px 25px">
-    @foreach (MyPurchase purchase in purchases)
+        @foreach (MyPurchase purchase in purchases)
+        {
+            <div class="col-sm-4" style="padding:15px">
+                <div class="card text-center">
+                    <img class="card-img-top border" src=@purchase alt="Card image cap" width="250" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">@purchase</h5>
+                        <p class="card-text">@purchase</p>
+                        <a href="#" class="btn btn-primary">Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-8" style="padding:15px">
+                <div class="card text-center">
+                    <img class="card-img-top border" src=@purchase alt="Card image cap" width="250" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">@purchase</h5>
+                        <p class="card-text">@purchase</p>
+                        <a href="#" class="btn btn-primary">Download</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>*@
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find By Name: @Html.TextBox("searchStr")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("PurchaseDate", "Index", new { sortOrder = ViewBag.sortbyPurchaseDate })
+        </th>
+        <th>
+            @Html.ActionLink("Id", "Index", new { sortOrder = ViewBag.sortbyId })
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>ActivationCodeId</th>
+    </tr>
+    @foreach (team5_SC.Models.MyPurchase myPurchase in myPurchases)
     {
-        <div class="col-sm-4" style="padding:15px">
-            <div class="card text-center">
-                <img class="card-img-top border" src=@purchase alt="Card image cap" width="250" height="200">
-                <div class="card-body">
-                    <h5 class="card-title">@purchase</h5>
-                    <p class="card-text">@purchase</p>
-                    <a href="#" class="btn btn-primary">Download</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-8" style="padding:15px">
-            <div class="card text-center">
-                <img class="card-img-top border" src=@purchase alt="Card image cap" width="250" height="200">
-                <div class="card-body">
-                    <h5 class="card-title">@purchase</h5>
-                    <p class="card-text">@purchase</p>
-                    <a href="#" class="btn btn-primary">Download</a>
-                </div>
-            </div>
-        </div>
+        <tr>
+            <td>
+                @myPurchase.PurchaseDate
+            </td>
+            <td>
+                @myPurchase.Id
+            </td>
+            <td>
+                @myPurchase.Qty
+            </td>
+            <td>
+            </td>
+        </tr>
     }
-</div>*@
-
-
-<div class="row" style="padding: 30px 25px 30px 25px">
-
-        <div class="col-sm-4" style="padding:15px">
-            <div class="card text-center">
-                <img class="card-img-top border" src="../../image/Chart.jpg" alt="Card image cap" width="250" height="200">
-                <div class="card-body">
-                    <h5 class="card-title">Product 1</h5>
-                    <p class="card-text">lorem lorem lorem lorem lorem lorem</p>
-                    <a href="#" class="btn btn-primary">Download</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-8" style="padding-top:100px;padding-left:50px">
-            <div class="row" style="padding:10px;">
-                <div class="col-sm-4">
-                    Product On:
-                </div>
-                <div class="col-sm-4">
-                    8 Apr 2019
-                </div>
-            </div>
-            <div class="row" style="padding:10px;">
-                <div class="col-sm-4">
-                    Quantity:
-                </div>
-                <div class="col-sm-4">
-                    2
-                </div>
-            </div>
-            <div class="row" style="padding:10px;">
-                <div class="col-sm-4">
-                    Activation Code:
-                </div>
-                <div class="col-sm-4">
-                    l1kl1k-1l2kl1-ll12kl-lkjl
-                </div>
-            </div>
-        </div>
-
-</div>
-
-
-<div class="row" style="padding: 30px 25px 30px 25px">
-    <div class="col-sm-4" style="padding:15px">
-        <div class="card text-center">
-            <img class="card-img-top border" src="../../image/Loggers.jpg" alt="Card image cap" width="250" height="200">
-            <div class="card-body">
-                <h5 class="card-title">Product 2</h5>
-                <p class="card-text">Lorem Lorem Lorem Lorem Lorem Lorem</p>
-                <a href="#" class="btn btn-primary">Download</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-8" style="padding-top:100px;padding-left:50px">
-            <div class="row" style="padding:10px;">
-                <div class="col-sm-4">
-                    Product On:
-                </div>
-                <div class="col-sm-4">
-                    8 Apr 2019
-                </div>
-            </div>
-            <div class="row" style="padding:10px;">
-                <div class="col-sm-4">
-                    Quantity:
-                </div>
-                <div class="col-sm-4">
-                    2
-                </div>
-            </div>
-            <div class="row" style="padding:10px;">
-                <div class="col-sm-4">
-                    Activation Code:
-                </div>
-                <div class="col-sm-4">
-                    l1kl1k-1l2kl1-ll12kl-lkjl
-                </div>
-            </div>
-        </div>
-</div>
+</table>

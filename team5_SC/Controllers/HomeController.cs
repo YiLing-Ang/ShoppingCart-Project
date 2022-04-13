@@ -37,25 +37,8 @@ namespace team5_SC.Controllers
                     x.Name.Contains(searchStr)
                 ).ToList();
             }
-            if(session != null)
-            {
-                //User user = dbContext.Users.FirstOrDefault(x => x.Id == session.User.Id);
-
-                cartQty = CartQty.get(session, null, dbContext);
-
-                ViewData["userCartQty"] = cartQty;
-            }
-            else if(session != null && Request.Cookies["Username"] == null)
-            {
-                cartQty = CartQty.get(session, null, dbContext);
-
-                ViewData["userCartQty"] = cartQty;
-            }
-            else
-            {
-                ViewData["userCartQty"] = 0;
-            }
-            
+            cartQty = CartQty.get(session, null, dbContext);
+            ViewData["userCartQty"] = cartQty;
             ViewData["searchStr"] = searchStr;
             ViewData["products"] = products;
             return View();

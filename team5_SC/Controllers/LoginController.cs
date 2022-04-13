@@ -134,15 +134,20 @@ namespace team5_SC.Controllers
 
                 if (session.User == null)
                 {
-                    // someone has used an invalid Session ID (to fool us?); 
-                    // route to Logout controller
                     return View();
                 }
 
                 // valid Session ID; route to Home page
                 return RedirectToAction("Index", "Home");
             }
+            Guid SessionId = Guid.NewGuid();
+            dbContext.Add(new Session
+            {
+                Id = SessionId
+            });
+            dbContext.SaveChanges();
 
+            Response.Cookies.Append("SessionId", SessionId.ToString());
             // no Session ID; show Login page
             return View();
         }

@@ -29,7 +29,6 @@ function Count_Icre_Decre(event) {
 
     let target = event.currentTarget;
     console.log("increase count" + target.className);
-
     console.log("parentElement.nodeName product id" + target.parentNode.id);
 
     if (target.parentNode.id != null) {

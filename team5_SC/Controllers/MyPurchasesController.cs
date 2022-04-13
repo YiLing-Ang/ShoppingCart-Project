@@ -15,7 +15,7 @@ namespace team5_SC.Controllers
             this.dbContext = dbContext;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string sortOrder, string searchStr)
         {
             if (Request.Cookies["SessionId"] == null || Request.Cookies["Username"] == null)
             {
@@ -23,12 +23,41 @@ namespace team5_SC.Controllers
             }
 
             User user = dbContext.Users.FirstOrDefault(x =>
-                x.Username == Request.Cookies["Username"]);
+            x.Username == Request.Cookies["Username"]);
 
-            List<MyPurchase> purchases = dbContext.MyPurchases.Where(x =>
-            x.UserId == user.Id).ToList();
+            List<MyPurchase> myPurchases = dbContext.MyPurchases.OrderByDescending(x => x.PurchaseDate).Where(x => x.UserId == user.Id).ToList();
+            ViewData["myPurchases"] = myPurchases;
 
-            ViewData["purchases"] = purchases;
+            ViewBag.sortbyPurchaseDate = String.IsNullOrEmpty(sortOrder) ? "date_desc" : "";
+            ViewBag.sortbyId = sortOrder == "Id" ? "id_desc" : "Id";
+
+            //if (!string.IsNullOrEmpty(searchStr))
+            //{
+            //    myPurchases = dbContext.MyPurchases.OrderByDescending(x => x.PurchaseDate).Where(x => x.UserId == user.Id && x.Qty == 1).ToList();
+            //}
+            switch (sortOrder)
+            {
+                case "date_desc":
+                    myPurchases = dbContext.MyPurchases.OrderByDescending(x => x.PurchaseDate).Where(x => x.UserId == user.Id).ToList();
+                    ViewData["myPurchases"] = myPurchases;
+                    break;
+                case "Date":
+                    myPurchases = dbContext.MyPurchases.OrderBy(x => x.PurchaseDate).Where(x => x.UserId == user.Id).ToList();
+                    ViewData["myPurchases"] = myPurchases;
+                    break;
+                case "Id":
+                    myPurchases = dbContext.MyPurchases.OrderBy(x => x.Id).Where(x => x.UserId == user.Id).ToList();
+                    ViewData["myPurchases"] = myPurchases;
+                    break;
+                case "id_desc":
+                    myPurchases = dbContext.MyPurchases.OrderByDescending(x => x.Id).Where(x => x.UserId == user.Id).ToList();
+                    ViewData["myPurchases"] = myPurchases;
+                    break;
+                default:
+                    myPurchases = dbContext.MyPurchases.OrderByDescending(x => x.PurchaseDate).Where(x => x.UserId == user.Id).ToList();
+
+                    break;
+            }
             return View();
         }
     }
