@@ -10,7 +10,6 @@ window.onload = function () {
         // we want to be notified when this image is being clicked
         elems[i].addEventListener('click', OnMouseClick);
     }
-
 }
 
 function OnMouseClick(event) {
@@ -56,5 +55,7 @@ function AddToCart(id) {
     // serializing to JSON string to send to server
     xhr.send(JSON.stringify(req));
 }
+
+
 
 

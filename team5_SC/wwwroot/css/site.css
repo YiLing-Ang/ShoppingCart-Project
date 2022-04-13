@@ -103,13 +103,16 @@ body {
     float: left;
     padding-left: 10px;
     text-align: left;
+    line-height: 50px;
 }
 
 .a_price_num {
     display: inline;
-    padding-left: 45px;
-    text-align: left;
+    width: 35%;
     float: left;
+    padding-left: 10px;
+    text-align: left;
+    line-height: 50px
 }
 
 .a_quantity {
