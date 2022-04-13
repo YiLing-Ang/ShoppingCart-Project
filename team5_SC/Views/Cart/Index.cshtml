@@ -6,10 +6,62 @@
     List<Cart> carts = (List<Cart>)ViewData["carts"];
     int userCartQty = (int)ViewData["userCartQty"];
 }
-@foreach(Cart cart in carts)
+@foreach (Cart cart in carts)
 {
-    <p>@cart.Product.Name</p>
-    <p>@cart.Product.Price</p>
-    <p>@cart.Quantity</p>
-    <br />
+    @*<div class="col-sm-4" style="padding:15px">
+        <div class="card text-center">
+            <img class="card-img-top border" src=@cart.Product.Image alt="Card image cap" width="250" height="200">
+            <div class="card-body">
+                <h5 class="card-title">@cart.Product.Name</h5>
+                <p class="card-text">@cart.Product.Description</p>
+            </div>
+        </div>
+    </div>
+    <div class="a_tabs">
+        <div class="a_product_price">
+            <div class="a_price">Price: </div>   <div class="a_price_num">$ @cart.Product.Price </div>
+        </div>
+        <div class="a_cartDetailqty">
+            <div class="a_quantity">Quantity: </div>
+            <a id=@cart.Product.Id class="a_quantity_num">
+                <div class="count_d">-</div>
+
+                <input id="cart_quanaity" class="num_count" value="@cart.Quantity" />
+                <div class="count_i">+</div>
+                <a href="#" class="btn btn-primary">Delete </a>
+        </div>
+    </div>*@
+
+    <div class="row" style="padding: 30px 25px 30px 25px">
+
+        <div class="col-sm-4" style="padding:15px">
+            <div class="card text-center">
+                <img class="card-img-top border" src=@cart.Product.Image alt="Card image cap" width="250" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">@cart.Product.Name</h5>
+                    <p class="card-text">@cart.Product.Description</p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8" style="padding-top:100px;padding-left:50px">
+            <div class="row" style="padding:10px;">
+                <div class="col-sm-4">
+                    <div class="a_price">Price: </div>   <div class="a_price_num">$ @cart.Product.Price </div>
+                </div>
+                <div class="a_cartDetailqty">
+                    <div class="a_quantity">Quantity: </div>
+                    <a id=@cart.Product.Id class="a_quantity_num">
+                        <div class="count_d">-</div>
+
+                        <input id="cart_quanaity" class="num_count" value="@cart.Quantity" />
+                        <div class="count_i">+</div>
+                        <a href="#" class="btn btn-primary">Delete </a>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
 }

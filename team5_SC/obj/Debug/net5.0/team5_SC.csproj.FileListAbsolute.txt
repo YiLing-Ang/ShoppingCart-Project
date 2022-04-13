@@ -202,7 +202,6 @@ C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.TagHelp
 C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\team5_SC.RazorCoreGenerate.cache
 C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
 C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -744,3 +743,6 @@ C:\Users\Ank\Desktop\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Cart\Inde
 C:\Users\MonKo\Documents\GitHub\team5-ca-sc\team5_SC\bin\Debug\net5.0\team5_SC.StaticWebAssets.xml
 C:\Users\MonKo\Documents\GitHub\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
 C:\Users\MonKo\Documents\GitHub\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\MyPurchases\Index.cshtml.g.cs
+C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\bin\Debug\net5.0\team5_SC.StaticWebAssets.xml
+C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+C:\Users\Ang\source\repos\team5-ca-sc\team5_SC\obj\Debug\net5.0\Razor\Views\MyPurchases\Index.cshtml.g.cs
