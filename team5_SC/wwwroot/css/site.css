@@ -69,3 +69,142 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+.a_tabs {
+    margin-top: 65px;
+    width: 350px;
+    height: 100px;
+    overflow: hidden;
+    line-height: 100px;
+    display: block;
+    /*    border: 1px solid;*/
+    float: left;
+    /*    position: absolute;*/
+    /*    float: right;*/
+}
+.a_cartDetailqty {
+    width: 320px;
+    float: left;
+    height: 50%;
+    line-height: 50px;
+    text-align: center;
+}
+
+.a_product_price {
+    width: 250px;
+    float: left;
+    height: 50%;
+    line-height: 50px;
+    text-align: center;
+}
+
+.a_price {
+    display: inline;
+    width: 35%;
+    float: left;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.a_price_num {
+    display: inline;
+    padding-left: 45px;
+    text-align: left;
+    float: left;
+}
+
+.a_quantity {
+    display: inline;
+    width: 35%;
+    float: left;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.a_quantity_num {
+    display: inline;
+    width: 90px;
+    line-height: 50px;
+}
+
+
+.num_count {
+    width: 50px;
+    height: 50px;
+    border: 1.2px solid #E0E0E0;
+    float: left;
+    text-align: center;
+    /*    margin-top: 21px;*/
+}
+
+.count_d {
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+    border: 1.2px solid #E0E0E0;
+    color: #747474;
+}
+    .count_d:hover {
+        width: 50px;
+        height: 50px;
+        line-height: 40px;
+        float: left;
+        text-align: center;
+        font-size: 25px;
+        color: #747474;
+        background: #E0E0E0;
+        cursor: pointer;
+    }
+
+.count_i {
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    font-size: 21px;
+    color: #747474;
+    border: 1.2px solid #E0E0E0;
+}
+
+    .count_i:hover {
+        width: 50px;
+        height: 50px;
+        line-height: 40px;
+        float: left;
+        text-align: center;
+        font-size: 21px;
+        color: #747474;
+        background: #E0E0E0;
+        cursor: pointer;
+    }
+
+.delete_i {
+    width: 25px;
+    height: 30px;
+    line-height: 40px;
+    float: right;
+    text-align: center;
+    font-size: 21px;
+    color: red;
+    /* border: 1.2px solid #E0E0E0; */
+    margin-left: 30px;
+    margin-top: 6px;
+    /* background: red; */
+}
+
+    .delete_i:hover {
+        width: 25px;
+        height: 30px;
+        line-height: 40px;
+        float: right;
+        text-align: center;
+        font-size: 21px;
+        color: black;
+        /*        background: red;
+*/ cursor: pointer;
+        margin-left: 30px;
+        margin-top: 6px;
+    }
