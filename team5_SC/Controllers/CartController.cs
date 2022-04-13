@@ -20,18 +20,35 @@ namespace team5_SC.Controllers
         {
             Session session = GetSession();
 
+            User user = null;
+            List<Cart> carts = null;
+            int userCartQty = 0;
+
+
             if (session == null)
             {
                 return RedirectToAction("Index", "Logout");
             }
 
-            User user = dbContext.Users.FirstOrDefault(x => x.Id == session.User.Id);
+            if (session != null && Request.Cookies["Username"] == null)
+            {
+                carts = dbContext.Carts.Where(x =>
+                    x.SessionId == session.Id
+                ).ToList();
 
-            List<Cart> carts = dbContext.Carts.Where(x =>
-                x.User.Id == user.Id
-            ).ToList();
+                userCartQty = CartQty.get(session, null, dbContext);
+            }
 
-            int userCartQty = CartQty.get(session, user, dbContext);
+            else
+            {
+                user = dbContext.Users.FirstOrDefault(x => x.Id == session.User.Id);
+
+                carts = dbContext.Carts.Where(x =>
+                    x.User.Id == user.Id
+                ).ToList();
+
+                userCartQty = CartQty.get(session, user, dbContext);
+            }
 
             ViewData["userCartQty"] = userCartQty;
             ViewData["carts"] = carts;
@@ -45,6 +62,8 @@ namespace team5_SC.Controllers
             Guid reqProductId = Guid.Parse(req.ProductId);
 
             Session session = GetSession();
+
+            int cartqty = 0;
 
             if (session == null && Request.Cookies["Username"] == null)
             {
@@ -68,7 +87,9 @@ namespace team5_SC.Controllers
                     });
                 dbContext.SaveChanges();
 
-                return Json(new { addstatus = "success", cartqty = 1 });
+                cartqty = 1;
+
+                //return Json(new { addstatus = "success", cartqty = 1 });
             }
 
             else if(session != null && Request.Cookies["Username"] == null)
@@ -87,15 +108,18 @@ namespace team5_SC.Controllers
                         Quantity = 1,
                         SessionId = session.Id
                     });
-                    
+                    dbContext.SaveChanges();
+
                 }
                 else
                 {
                     cartDetails.Quantity += 1;
+                    dbContext.SaveChanges();
                 }
-                dbContext.SaveChanges();
 
-                return Json(new { addstatus = "success" });
+                cartqty = CartQty.get(session, null, dbContext);
+
+                //return Json(new { addstatus = "success" , cartqty = CartQty.get(session, null, dbContext) });
             }
 
             else
@@ -125,8 +149,12 @@ namespace team5_SC.Controllers
                     dbContext.SaveChanges();
                 }
 
-                return Json(new { addstatus = "success", cartqty = CartQty.get(session, user, dbContext) });
-            }           
+                cartqty = CartQty.get(session, user, dbContext);
+
+                //return Json(new { addstatus = "success", cartqty = CartQty.get(session, user, dbContext) });
+            }
+
+            return Json(new { addstatus = "success", cartqty = cartqty });
         }
 
         public IActionResult CountIcreOrDcre([FromBody] CartUpdate req)
@@ -202,52 +230,58 @@ namespace team5_SC.Controllers
             {
                 return null;
             }
-            Console.WriteLine("Username:" + Request.Cookies["Username"]);
+
             // retrieve current user instance
             User user = dbContext.Users.FirstOrDefault(x => x.Username == Request.Cookies["Username"]);
+
             // retrieve current user's cartdetail
             List<Cart> cartDetails = dbContext.Carts.Where(x =>
-            x.User.Id == user.Id).ToList();
+                x.User.Id == user.Id
+            ).ToList();
+
             double sum = 0;
+
             foreach (Cart cartDetail in cartDetails)
             {
                 Product product = dbContext.Products.FirstOrDefault(x => x.Id == cartDetail.Product.Id);
                 sum += cartDetail.Quantity * product.Price;
             }
-            Console.WriteLine("cartDetail sum : " + $"{sum:c}");
+
             return Json(new { carttotal = sum });
         }
         public IActionResult Checkout()
         {
             Session session = GetSession();
+
+            if(session != null && Request.Cookies["Username"]==null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+                
             User user = dbContext.Users.FirstOrDefault(x =>
             x.Username == Request.Cookies["Username"]);
+
             List<Cart> Carts = dbContext.Carts.Where(x =>
             x.User.Id == user.Id).ToList();
-            Console.WriteLine("Add Checkout Items to MyPurchase : " + session.Id);
-            //if (session != null)
-            //{
-            // return RedirectToAction("Index", "Login");
-            //}
 
             if (session != null)
             {
+                
                 foreach (Cart cartDetail in Carts)
                 {
-                    //MyPurchase PurchaseHistory = new MyPurchase();
                     dbContext.Add(new MyPurchase
                     {
                         Id = cartDetail.Id,
                         Qty = cartDetail.Quantity,
                         UserId = user.Id,
                         PurchaseDate = DateTime.Now,
-                        Product = cartDetail.Product
+                        Product = cartDetail.Product,
+                        ActivationCodes = GenerateActivationCode(cartDetail.Quantity, cartDetail.Product.Id)
                     });
-                    //Console.WriteLine("purchaseid :" + cartDetail.Id);
-                    //Console.WriteLine("product id :" + cartDetail.Product.Id);
 
                     dbContext.RemoveRange(cartDetail);
                 }
+
                 dbContext.SaveChanges();
                 RedirectToAction("ClearCart");
                 return RedirectToAction("Index", "MyPurchases");
@@ -280,9 +314,7 @@ namespace team5_SC.Controllers
                 Console.WriteLine("error remove item from cart");
                 return Json(new { status = "fail" });
             }
-
             return RedirectToAction("Index", "Cart");
-
         }
 
         private Session GetSession()
@@ -298,6 +330,21 @@ namespace team5_SC.Controllers
             );
 
             return session;
+        }
+
+        private List<ActivationCode> GenerateActivationCode(int quantity,Guid pid)
+        {
+            List<ActivationCode> codes = new List<ActivationCode>();
+
+            for(int i = 1; i <= quantity; i++)
+            {
+                ActivationCode code = new ActivationCode
+                {
+                    ProductId = pid
+                };
+                codes.Add(code);
+            }
+            return codes;
         }
 
     }

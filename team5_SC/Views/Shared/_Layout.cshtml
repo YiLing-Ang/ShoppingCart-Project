@@ -13,9 +13,9 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-
+            
             <div class="container">
-
+                
                 <div>
                     @if (Context.Request.Cookies["Username"] != null && Context.Request.Cookies["SessionId"] != null)
                     {
@@ -44,7 +44,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Logout" asp-action="Index" style="color: #0000EE"><u>Logout</u></a>
                             </li>
-                        </ul>}
+                        </ul>
+                    }
                     @if (Context.Request.Cookies["Username"] == null || Context.Request.Cookies["SessionId"] == null)
                     {
                         <ul class="navbar-nav text-right">
@@ -54,21 +55,26 @@
                         </ul>
                         <ul class="navbar-nav text-right">
                             <li class="nav-item active">
-                                <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index"><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">0</span> </a>
+                                <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index" ><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">0</span> </a>
                             </li>
                         </ul>
                     }
                     else
                     {
-                <ul class="navbar-nav text-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index"><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">@ViewData["userCartQty"]</span> </a>
-                    </li>
-                </ul>
+                        @*<ul class="navbar-nav text-right">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index" style="color: #0000EE"><u>Login</u></a>
+                            </li>
+                        </ul>*@
+                        <ul class="navbar-nav text-right">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index" ><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">@ViewData["userCartQty"]</span> </a>
+                            </li>
+                        </ul>
                     }
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">

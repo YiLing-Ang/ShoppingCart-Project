@@ -3,72 +3,66 @@
 *@
 @{
     ViewData["Title"] = "My Purchases";
-    List<MyPurchase> myPurchases = (List<MyPurchase>)ViewData["myPurchases"];
+    List<MyPurchase> purchases = (List<MyPurchase>)ViewData["myPurchases"];
 
 }
 
-@*<div class="row" style="padding: 30px 25px 30px 25px">
-        @foreach (MyPurchase purchase in purchases)
-        {
-            <div class="col-sm-4" style="padding:15px">
-                <div class="card text-center">
-                    <img class="card-img-top border" src=@purchase alt="Card image cap" width="250" height="200">
-                    <div class="card-body">
-                        <h5 class="card-title">@purchase</h5>
-                        <p class="card-text">@purchase</p>
-                        <a href="#" class="btn btn-primary">Download</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-8" style="padding:15px">
-                <div class="card text-center">
-                    <img class="card-img-top border" src=@purchase alt="Card image cap" width="250" height="200">
-                    <div class="card-body">
-                        <h5 class="card-title">@purchase</h5>
-                        <p class="card-text">@purchase</p>
-                        <a href="#" class="btn btn-primary">Download</a>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>*@
-
-@using (Html.BeginForm())
-{
-    <p>
-        Find By Name: @Html.TextBox("searchStr")
-        <input type="submit" value="Search" />
-    </p>
-}
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.ActionLink("PurchaseDate", "Index", new { sortOrder = ViewBag.sortbyPurchaseDate })
-        </th>
-        <th>
-            @Html.ActionLink("Id", "Index", new { sortOrder = ViewBag.sortbyId })
-        </th>
-        <th>
-            Quantity
-        </th>
-        <th>ActivationCodeId</th>
-    </tr>
-    @foreach (team5_SC.Models.MyPurchase myPurchase in myPurchases)
+<div class="row" style="padding: 30px 25px 30px 25px;">
+    @foreach (MyPurchase purchase in purchases)
     {
-        <tr>
-            <td>
-                @myPurchase.PurchaseDate
-            </td>
-            <td>
-                @myPurchase.Id
-            </td>
-            <td>
-                @myPurchase.Qty
-            </td>
-            <td>
-            </td>
-        </tr>
+        <div class="col-sm-4" style="padding:30px">
+            <div class="card text-center">
+                <img class="card-img-top border" src=@purchase.Product.Image alt="Card image cap" width="250" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">@purchase.Product.Name</h5>
+                    <p class="card-text">@purchase.Product.Description</p>
+                    <a href="#" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8" style="padding-top:100px;padding-left:50px">
+            <div class="row" style="padding:10px;">
+                <div class="col-sm-3">
+                    <b>Purchased On:</b>
+                </div>
+                <div class="col-sm-5">
+                    @purchase.PurchaseDate.ToString("dd MMM yyyy")
+                </div>
+            </div>
+            <div class="row" style="padding:10px;">
+                <div class="col-sm-3">
+                    <b>Quantity:</b>
+                </div>
+                <div class="col-sm-5">
+                    @purchase.Qty
+                </div>
+            </div>
+            <div class="row" style="padding:10px;">
+                <div class="col-sm-3">
+                    <b>Activation Code:</b>
+                </div>
+                <div class="col-sm-6">
+                    @if (purchase.ActivationCodes.Count > 1)
+                    {
+                        <select class="form-control" name="codes" id="codes">
+                            @foreach (ActivationCode ac in purchase.ActivationCodes)
+                            {
+                                <option>@ac.Id</option>
+                            }
+                        </select>
+                    }
+                    else
+                    {
+                        @foreach (ActivationCode ac in purchase.ActivationCodes)
+                        {
+                            @ac.Id
+                        }
+                    }
+                </div>
+            </div>
+        </div>
     }
-</table>
+
+</div>
+

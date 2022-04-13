@@ -27,6 +27,7 @@ using Microsoft.AspNetCore.Hosting;
 using team5_SC.Models;
 using System.Security.Cryptography;
 using System.Text;
+using team5_SC.DataHelper;
 
 namespace team5_SC.Controllers
 {
@@ -71,7 +72,7 @@ namespace team5_SC.Controllers
                 dbContext.SaveChanges();
 
                 List<Cart> products = dbContext.Carts.Where(x =>
-                    x.User.Id == user.Id
+                    x.User == user
                 ).ToList();
 
                 List<Cart> carts = dbContext.Carts.Where(x =>
@@ -80,6 +81,12 @@ namespace team5_SC.Controllers
 
                 foreach(Cart cart in carts)
                 {
+                    if(products.Count == 0)
+                    {
+                        cart.User = user;
+                        cart.SessionId = sessionid;
+                        dbContext.SaveChanges();
+                    }
                     //cart.User = user;
                     foreach(Cart product in products)
                     {
@@ -93,11 +100,11 @@ namespace team5_SC.Controllers
                         else
                         {
                             cart.User = user;
+                            cart.SessionId = sessionid;
                             dbContext.SaveChanges();
                         }
                     }
-                }
-                
+                }               
 
                 Response.Cookies.Append("Username", user.Username);
             }
@@ -134,6 +141,13 @@ namespace team5_SC.Controllers
 
                 if (session.User == null)
                 {
+                    // someone has used an invalid Session ID (to fool us?); 
+                    // route to Logout controller
+
+                    int cartQty = CartQty.get(session, null, dbContext);
+
+                    ViewData["userCartQty"] = cartQty;
+
                     return View();
                 }
 
@@ -153,10 +167,6 @@ namespace team5_SC.Controllers
         }
 
 
-        public void bindData()
-        {
-
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

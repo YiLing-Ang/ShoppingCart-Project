@@ -11,7 +11,7 @@ namespace team5_SC.Models
         {
             Id = new Guid();
             Carts = new List<Cart>();
-            MyPurchases = new List<MyPurchase>();
+            //MyPurchases = new List<MyPurchase>();
         }
 
         public Guid Id { get; set; }
@@ -26,6 +26,6 @@ namespace team5_SC.Models
 
         public virtual ICollection<Cart> Carts { get; set; }
 
-        public virtual ICollection<MyPurchase> MyPurchases { get; set; }
+        //public virtual ICollection<MyPurchase> MyPurchases { get; set; }
     }
 }

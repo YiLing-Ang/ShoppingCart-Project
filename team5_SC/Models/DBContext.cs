@@ -20,11 +20,15 @@ namespace team5_SC.Models
         }
 
         public DbSet<User> Users { get; set; }
+
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Cart> Carts { get; set; }
+
         public DbSet<MyPurchase> MyPurchases { get; set; }
 
         public DbSet<Session> Sessions { get; set; }
+
+        public DbSet<ActivationCode> ActivationCodes { get; set; }
     }    
 }
