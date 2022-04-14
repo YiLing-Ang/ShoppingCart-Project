@@ -45,16 +45,15 @@ namespace team5_SC.Controllers
 
                 ViewData["userCartQty"] = cartQty;
             }
-            else if(session != null && Request.Cookies["Username"] == null)
+            else //if(session != null && Request.Cookies["Username"] == null)
             {
                 cartQty = CartQty.get(session, null, dbContext);
-
                 ViewData["userCartQty"] = cartQty;
             }
-            else
-            {
-                ViewData["userCartQty"] = 0;
-            }
+            //else
+            //{
+            //    ViewData["userCartQty"] = 0;
+            //}
             
             ViewData["searchStr"] = searchStr;
             ViewData["products"] = products;

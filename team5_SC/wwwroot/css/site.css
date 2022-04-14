@@ -12,8 +12,15 @@ a {
   color: #0366d6;
 }
 
+.navbarsticky
+{
+    position: fixed !important;
+    width: 100%;
+    z-index: 1;
+}
+
 .btn-primary {
-  color: #fff;
+  color: #ffffff !important;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
@@ -108,7 +115,7 @@ body {
 
 .a_price_num {
     display: inline;
-    width: 35%;
+    width: 40%;
     float: left;
     padding-left: 10px;
     text-align: left;

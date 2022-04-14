@@ -22,7 +22,7 @@ namespace team5_SC.Controllers
 
             User user = null;
             List<Cart> carts = null;
-            int userCartQty = 0;
+            int userCartQty;
 
 
             if (session == null)
@@ -63,7 +63,7 @@ namespace team5_SC.Controllers
 
             Session session = GetSession();
 
-            int cartqty = 0;
+            int cartqty;
 
             if (session == null && Request.Cookies["Username"] == null)
             {

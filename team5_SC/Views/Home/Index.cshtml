@@ -9,7 +9,7 @@
 }
 
 <form action="/Home/Index/" method="POST">
-    <div class="row" style="padding: 10px 25px 0px 25px;">
+    <div class="row" style="padding: 90px 25px 0px 40px;">
         <div class="col-md-8">
             <div class="input-group mb-3">
                 <input type="text" class="form-control input-text" placeholder="Search products...." name="searchStr" value="@searchStr">
@@ -19,7 +19,7 @@
     </div>
 </form>
 
-<div class="row" style="padding: 30px 25px 30px 25px">
+<div class="row" style="padding: 0px 25px 30px 25px">
     @foreach (Product product in products)
     {
         <div class="col-sm-4" style="padding:30px">
@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <h5 class="card-title">@product.Name</h5>
                     <p class="card-text">@product.Description</p>
-                    <a href="#" class="btn btn-primary my_product" id="@product.Id">$@product.Price - Add To Cart</a>
+                    <a class="btn btn-primary my_product" id="@product.Id">$@product.Price - Add To Cart</a>
                 </div>
             </div>
         </div>

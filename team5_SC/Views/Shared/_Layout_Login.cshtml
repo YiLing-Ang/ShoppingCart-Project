@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - team5_SC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+	<link rel="stylesheet" href="~/css/login.css" />
+	<link rel="stylesheet" href="~/css/gallery.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            
+            <div class="container">
+                
+                <div>
+                    @if (Context.Request.Cookies["Username"] != null && Context.Request.Cookies["SessionId"] != null)
+                    {
+                        <div style="font-weight:bold; display:inline">Hello, <u>@Context.Request.Cookies["Username"]</u></div>
+                    }
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    @if (Context.Request.Cookies["Username"] != null && Context.Request.Cookies["SessionId"] != null)
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">|</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img style="height: 30px" src="~/image/pdt-favicon.png" title="Products"> Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">|</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="MyPurchases" asp-action="Index"><img style="height: 30px" src="~/image/transhist-favicon.png" title="My Purchases"> My Purchases</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">|</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Logout" asp-action="Index" style="color: #0000EE"><u>Logout</u></a>
+                            </li>
+                        </ul>
+                    }
+                    @if (Context.Request.Cookies["Username"] == null || Context.Request.Cookies["SessionId"] == null)
+                    {
+                        <ul class="navbar-nav text-right">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index" style="color: #0000EE"><u>Login</u></a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav text-right">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index" ><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">@ViewData["userCartQty"]</span> </a>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        @*<ul class="navbar-nav text-right">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index" style="color: #0000EE"><u>Login</u></a>
+                            </li>
+                        </ul>*@
+                        <ul class="navbar-nav text-right">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index" ><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">@ViewData["userCartQty"]</span> </a>
+                            </li>
+                        </ul>
+                    }
+                    </div>
+                </div>
+            </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - team5_SC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/addtocart.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

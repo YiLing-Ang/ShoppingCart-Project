@@ -7,7 +7,7 @@
 
 }
 
-<div class="row" style="padding: 30px 25px 30px 25px;">
+<div class="row" style="padding: 60px 25px 0px 25px;">
     @foreach (MyPurchase purchase in purchases)
     {
         <div class="col-sm-4" style="padding:30px">
@@ -45,20 +45,30 @@
                 <div class="col-sm-6">
                     @if (purchase.ActivationCodes.Count > 1)
                     {
-                        <select class="form-control" name="codes" id="codes">
-                            @foreach (ActivationCode ac in purchase.ActivationCodes)
-                            {
-                                <option>@ac.Id</option>
-                            }
-                        </select>
-                    }
-                    else
+                <select class="form-control" name="codes" onchange="copyTextToClipboard(this.value); this.style = 'background-color: lightgrey;'">
+                    <option></option>
+                    @foreach (ActivationCode ac in purchase.ActivationCodes)
                     {
-                        @foreach (ActivationCode ac in purchase.ActivationCodes)
-                        {
-                            @ac.Id
-                        }
-                    }
+                <option>@ac.Id</option>
+}
+                </select> }
+            else
+            {
+                @foreach (ActivationCode ac in purchase.ActivationCodes)
+                {
+                <input type="hidden" id="@purchase.Product.Id" value="@ac.Id" />
+                <span onclick="copyTextToClipboard('@ac.Id'); this.style = 'color: blue;';" onmouseover="this.style.cursor='pointer'">@ac.Id</span>
+                }
+            }
+                    
+                </div>
+            </div>
+            <div class="row" style="padding:10px;">
+                <div class="col-sm-3">
+                    
+                </div>
+                <div class="col-sm-6">
+                    <b>Click code above to copy link</b>
                 </div>
             </div>
         </div>

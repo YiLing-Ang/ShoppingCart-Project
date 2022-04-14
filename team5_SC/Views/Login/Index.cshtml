@@ -1,6 +1,13 @@
-﻿<div class="card loginCard">
-    <form action="/Login/Login" method="POST">
+﻿@{ 
+    Layout = "_Layout_Login";
+}
 
+<div class="card loginCard" style="margin-top: 0px; top: 10px; padding-top: 40px; margin-bottom: 10px;">
+    <form action="/Login/Login" method="POST">
+        <div class="card-header" style="text-align: center; background-color: #ffffff; padding: 0px 0px 20px 0px;"><img src="~/image/amazoncom_moneyzgonecom.jpg" style="max-width: 278px;" /></div>
+        <div class="form-outline mb-4" style="text-align: center; margin-top: 20px;">
+            <h2>Member Login</h2>
+        </div>
         <div class="form-outline mb-4">
             <input type="text" id="form2Example1" class="form-control" placeholder="Username" name="username" />
         </div>

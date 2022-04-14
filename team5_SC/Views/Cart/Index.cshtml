@@ -23,7 +23,7 @@
 
     @foreach (Cart cart in carts)
     {
-        <div class="row" style="padding: 30px 25px 30px 25px">
+        <div class="row" style="padding: 40px 25px 0px 25px">
 
             <div class="col-sm-4" style="padding:30px">
                 <div class="card text-center">
@@ -37,7 +37,7 @@
             </div>
 
             <div class="col-sm-8" style="padding-top:100px;padding-left:50px">
-                <div class="row" style="padding:10px;">
+                <div class="row" style="padding: 70px 10px 10px 10px;">
                     <div class="col-sm-3">
                         <div class="a_price"><b>Price: </b></div>
                         <div class="a_price_num">$ @cart.Product.Price </div>
@@ -74,7 +74,7 @@
 
                 <div class="col-sm-3">
                     <button class="btn btn-outline-info">
-                        <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Checkout" style="padding: 1px;">
+                        <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Checkout" style="padding: 1px"; onclick="return confirm('Please confirm your purchase')">
                             Checkout <i class="fa fa-credit-card"></i>
                         </a>
                     </button>
@@ -91,6 +91,6 @@ else
             <i class="fa fa-cart-plus"></i> Continue Shopping
         </a>
     </button>
-    <h2 style="margin:30px">Your Cart is Empty!</h2>
+    <h2 style="margin:30px">Your cart is empty</h2>
 </div>
 }
