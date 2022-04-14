@@ -44,7 +44,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Logout" asp-action="Index" style="color: #0000EE"><u>Logout</u></a>
                             </li>
-                        </ul>}
+                        </ul>
+                    }
                     @if (Context.Request.Cookies["Username"] == null || Context.Request.Cookies["SessionId"] == null)
                     {
                         <ul class="navbar-nav text-right">
@@ -60,6 +61,11 @@
                     }
                     else
                     {
+                        @*<ul class="navbar-nav text-right">
+                                <li class="nav-item active">
+                                    <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index" style="color: #0000EE"><u>Login</u></a>
+                                </li>
+                            </ul>*@
                         <ul class="navbar-nav text-right">
                             <li class="nav-item active">
                                 <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index"><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">@ViewData["userCartQty"]</span> </a>
