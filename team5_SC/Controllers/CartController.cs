@@ -166,9 +166,20 @@ namespace team5_SC.Controllers
             
             Session session = GetSession();
 
-            // filter selected item by product id and session id
-            Cart cartDetail = dbContext.Carts.FirstOrDefault(x =>
-                  x.SessionId == session.Id && x.Product.Id == Guid.Parse(req.ProductId));
+            // filter selected item by product id and current user id / session id
+            Cart cartDetail;
+            if (session.User != null)
+            {
+                cartDetail = dbContext.Carts.FirstOrDefault(x =>
+                  x.User.Id == session.User.Id && x.Product.Id == Guid.Parse(req.ProductId)
+                );
+            }
+            else
+            {
+                cartDetail = dbContext.Carts.FirstOrDefault(x =>
+                  x.SessionId == session.Id && x.Product.Id == Guid.Parse(req.ProductId)
+                );
+            }
 
             if (req.ClassName == "num_count")
             {

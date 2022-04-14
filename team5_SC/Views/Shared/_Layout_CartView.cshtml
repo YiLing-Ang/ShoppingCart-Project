@@ -61,18 +61,18 @@
                     }
                     else
                     {
-                <ul class="navbar-nav text-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index"><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">@ViewData["userCartQty"]</span> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark">|</a>
-                    </li>
-                    <li class="nav-itemt ml-auto" style="padding-top: 9px">
-                        Total: $
-                        <span id="cart_total">0.0</span>
-                    </li>
-                </ul>
+                        <ul class="navbar-nav text-right">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="Index"><img style="height: 30px" src="~/image/cart-favicon.png" title="Cart"> Cart : <span id="cartQtyId">@ViewData["userCartQty"]</span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">|</a>
+                            </li>
+                            <li class="nav-itemt ml-auto" style="padding-top: 9px">
+                                Total: $
+                                <span id="cart_total">0.0</span>
+                            </li>
+                        </ul>
                     }
                 </div>
             </div>
