@@ -143,6 +143,7 @@ namespace team5_SC.Controllers
                     int cartQty = CartQty.get(session, null, dbContext);
 
                     ViewData["userCartQty"] = cartQty;
+                    ViewData["loginfail"] = false;
 
                     return View();
                 }
