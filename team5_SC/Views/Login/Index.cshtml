@@ -1,4 +1,7 @@
-﻿<div class="card loginCard">
+﻿@{ 
+    bool isLoginFail = (bool)ViewData["loginfail"];
+}
+<div class="card loginCard">
     <form action="/Login/Login" method="POST">
 
         <div class="form-outline mb-4">
@@ -8,6 +11,12 @@
         <div class="form-outline mb-4">
             <input type="password" class="form-control" placeholder="Password" name="password" />
         </div>
+
+        @if (isLoginFail)
+        {
+            <p style="color:red;">Invalid username or password!<br />
+        Please Try again.</p>
+        }
 
         <button type="submit" class="btn btn-block btn-primary">Sign in</button>
     </form>

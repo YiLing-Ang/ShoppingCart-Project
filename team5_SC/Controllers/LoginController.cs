@@ -58,9 +58,9 @@ namespace team5_SC.Controllers
             {
                 ViewBag.Message = "Login failed. Invalid credentials entered.";
 
-                return View("Index");
+                //return View("Index", new { validate = "attempt"});
 
-                //return RedirectToAction("Index", "Login");
+                return RedirectToAction("Index", "Login", new { validate = "attempt" });
             }
 
             if (Request.Cookies["SessionId"] != null)
@@ -126,7 +126,7 @@ namespace team5_SC.Controllers
             return RedirectToAction("Index","Home");
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string validate)
         {
             if (Request.Cookies["SessionId"] != null)
             {
@@ -134,10 +134,6 @@ namespace team5_SC.Controllers
                 Session session = dbContext.Sessions.FirstOrDefault(x =>
                     x.Id == sessionId
                 );
-
-                //User user = dbContext.Users.FirstOrDefault(x =>
-                //    x.Id == session.User.Id
-                //);
 
                 if (session.User == null)
                 {
@@ -154,14 +150,14 @@ namespace team5_SC.Controllers
                 // valid Session ID; route to Home page
                 return RedirectToAction("Index", "Home");
             }
-            Guid SessionId = Guid.NewGuid();
-            dbContext.Add(new Session
+            if (validate == "attempt")
             {
-                Id = SessionId
-            });
-            dbContext.SaveChanges();
-
-            Response.Cookies.Append("SessionId", SessionId.ToString());
+                ViewData["loginfail"] = true;
+            }
+            else
+            {
+                ViewData["loginfail"] = false;
+            }
             // no Session ID; show Login page
             return View();
         }
